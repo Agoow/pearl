@@ -43,7 +43,7 @@ async def on_message(message):
                                    "/image0.gif")
 
 
-client.run("ODgwMDcxODkyNDQ5NTAxMjE0.YSY80g.vkrruEkpH0NJPpPgG0Z52AkF0Yg")
+client.run("token")
 
 
 # history = message.channel.history(limit=200)  # 200 derniers messages sur le channel dans lequel est passé la commande
