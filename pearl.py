@@ -14,9 +14,9 @@ load_dotenv()
 # cog_files = ['commands.commands']
 
 
-bot = commands.Bot(command_prefix='*')  # , description="Bot polyvalent(vraiment pas)")
-client = discord.Client()
-# client = discord.ext.commands.command()
+client = commands.Bot(command_prefix='p!')  # , description="Bot polyvalent(vraiment pas)")
+#client = discord.Client()
+#client = discord.ext.commands.command()
 
 
 # for cog_file in cog_files:
@@ -50,23 +50,21 @@ async def on_message(message):
                                    "/image0.gif")
 
 
-# @client.command()
-# async def kick(ctx, member: discord.member, *, reason=None):
-#     await member.kick(reason=reason)
+@client.command()
+async def kick(ctx, member: discord.Member):  # , *, reason=None
+    await member.kick()  # reason=reason
 
 
 client.run(os.getenv("pearltoken"))
 
 
 # history = message.channel.history(limit=200)  # 200 derniers messages sur le channel dans lequel est passé la commande
-# if message.content in message.channel.history(limit=500).flatten():
-#  await message.channel.send("repost")
 ####################################################################################################
 # command_name = message.content[len(prefix):]
 #      await dispatch_commands(command_name, message)
 #          async def dispatch_commands(command_name, message):
-#    if command_name == 'cr':
-#       await message.channel.send('inge')
+#    if command_name == 'te':
+#       await message.channel.send('st')
 ####################################################################################################
 
 # @client.event
