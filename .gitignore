@@ -2,3 +2,4 @@ venv
 .env
 .idea
 test.py
+.idea/workspace.xml
