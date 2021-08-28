@@ -1,16 +1,23 @@
+import os
 import discord
 from discord.ext import commands
+from discord.ext.commands import Bot
 # import datetime
 # import asyncio
 # import re
 # import urllib
 # import opengraph
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # cog_files = ['commands.commands']
 
 
-bot = commands.Bot(command_prefix='*', description="Bot polyvalent(vraiment pas)")
+bot = commands.Bot(command_prefix='*')  # , description="Bot polyvalent(vraiment pas)")
 client = discord.Client()
+# client = discord.ext.commands.command()
+
 
 # for cog_file in cog_files:
 #    client.load_extension(cog_file)
@@ -19,7 +26,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Streaming(name="Pearl", url="https://www.twitch.tv/Imcatjam"))
-    print('connecté au serveur(s)')
+    print('connecté au(x) serveur(s)')
 
 
 @client.event
@@ -43,7 +50,12 @@ async def on_message(message):
                                    "/image0.gif")
 
 
-client.run("token")
+# @client.command()
+# async def kick(ctx, member: discord.member, *, reason=None):
+#     await member.kick(reason=reason)
+
+
+client.run(os.getenv("pearltoken"))
 
 
 # history = message.channel.history(limit=200)  # 200 derniers messages sur le channel dans lequel est passé la commande
