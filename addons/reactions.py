@@ -11,10 +11,15 @@ class reactions(commands.Cog):
         await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="des vidéos de chien", url="https://www.youtube.com/watch?v=wl4m1Rqmq-Y"))
         print('🤖 Bot Discord connecté au(x) serveur(s)')
 
-    async def on_message(message):
-        if message.author == client.user:
+    @commands.Cog.listener("on_message")
+    async def on_message(self, message):
+        if message.author == self.client.user:
             return
 
+        if self.client.user.mentioned_in(message):
+            bot_message = 'Je vais te boter le cul si tu me mentionnes encore, ' + message.author.name + ' !'
+            await message.channel.send(bot_message)
+        
         msg = message.content
         if msg.lower() == "cringe":
             await message.delete()
@@ -27,7 +32,6 @@ class reactions(commands.Cog):
             await message.delete()
             await message.channel.send('https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490'
                                        '/image0.gif')
-
 
 def setup(client):
     client.add_cog(reactions(client))

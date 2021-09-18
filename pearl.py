@@ -19,7 +19,6 @@ async def kick(ctx, member: discord.Member):  # , *, reason=None
     await member.kick()  # reason=reason
     await ctx.send(f"{member} n'était pas assez bourré, il a donc été expulsé")
 
-
 @client.command()
 @has_permissions(ban_members=True)
 async def ban(ctx, member: discord.Member):  # , *, reason=None
@@ -29,7 +28,6 @@ async def ban(ctx, member: discord.Member):  # , *, reason=None
 for filename in os.listdir('./addons'):
     if filename.endswith(".py"):
         client.load_extension(f'addons.{filename[:-3]}')
-
 
 client.run(os.getenv("pearltoken"))
 
