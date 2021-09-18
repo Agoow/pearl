@@ -1,5 +1,6 @@
 import os
 import discord
+import psycopg2
 from discord.ext import commands
 #from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions, MissingPermissions
@@ -11,9 +12,39 @@ from discord.ext.commands import has_permissions, MissingPermissions
 from dotenv import load_dotenv
 load_dotenv()
 
-
 client = commands.Bot(command_prefix='*')  # , description="Bot polyvalent(vraiment pas)")
 
+# Connexion DB PostgreSQL
+def connect():
+    """ Connect to the PostgreSQL database server """
+    conn = None
+    try:
+        # connect to the PostgreSQL server
+        print('😨 Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect( 
+            host=os.getenv("db_host"),
+            database=os.getenv("db_name"),
+            user=os.getenv("db_user"),
+            password=os.getenv("db_password"))
+		
+        # create a cursor
+        cur = conn.cursor()
+        
+        cur.execute('SELECT version()')
+
+        # display the PostgreSQL database server version
+        db_version = cur.fetchone()
+        print('📖 PostgreSQL database connected [', db_version, ']')
+       
+	# close the communication with the PostgreSQL
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+            print('📕 Database connection closed.')
+connect()
 
 @client.command()
 @has_permissions(kick_members=True)

@@ -142,3 +142,4 @@ test.py
 .idea/workspace.xml
 
 .idea
+database.ini

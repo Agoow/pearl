@@ -10,7 +10,7 @@ class reactions(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         await self.client.change_presence(activity=discord.Streaming(name="Pearl", url="https://www.twitch.tv/Imcatjam"))
-        print('connecté au(x) serveur(s)')
+        print('🤖 Bot connecté au(x) serveur(s)')
 
     async def on_message(message):
         if message.author == client.user:
