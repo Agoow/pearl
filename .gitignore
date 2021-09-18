@@ -140,3 +140,5 @@ test.py
 .idea/shelf/Uncommitted_changes_before_Update_at_28_08_2021_04_44_[Changes]/shelved.patch
 *.patch
 .idea/workspace.xml
+
+.idea
