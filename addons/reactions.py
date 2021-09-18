@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 
-
 class reactions(commands.Cog):
 
     def __init__(self, client):
@@ -9,8 +8,8 @@ class reactions(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        await self.client.change_presence(activity=discord.Streaming(name="Pearl", url="https://www.twitch.tv/Imcatjam"))
-        print('🤖 Bot connecté au(x) serveur(s)')
+        await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="des vidéos de chien", url="https://www.youtube.com/watch?v=wl4m1Rqmq-Y"))
+        print('🤖 Bot Discord connecté au(x) serveur(s)')
 
     async def on_message(message):
         if message.author == client.user:

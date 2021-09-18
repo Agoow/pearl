@@ -1,6 +1,5 @@
 import os
 import discord
-import psycopg2
 from discord.ext import commands
 #from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions, MissingPermissions
@@ -13,38 +12,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = commands.Bot(command_prefix='*')  # , description="Bot polyvalent(vraiment pas)")
-
-# Connexion DB PostgreSQL
-def connect():
-    """ Connect to the PostgreSQL database server """
-    conn = None
-    try:
-        # connect to the PostgreSQL server
-        print('😨 Connecting to the PostgreSQL database...')
-        conn = psycopg2.connect( 
-            host=os.getenv("db_host"),
-            database=os.getenv("db_name"),
-            user=os.getenv("db_user"),
-            password=os.getenv("db_password"))
-		
-        # create a cursor
-        cur = conn.cursor()
-        
-        cur.execute('SELECT version()')
-
-        # display the PostgreSQL database server version
-        db_version = cur.fetchone()
-        print('📖 PostgreSQL database connected [', db_version, ']')
-       
-	# close the communication with the PostgreSQL
-        cur.close()
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
-            print('📕 Database connection closed.')
-connect()
 
 @client.command()
 @has_permissions(kick_members=True)
@@ -83,9 +50,11 @@ client.run(os.getenv("pearltoken"))
 # print(urls[0])
 # message.channel.id == 398284500670611466 and message.content in message.channel.history():
 ####################################################################################################
-# channel IMAJMEME :    190815749328207872,
-# channel COMMANDES:    398284500670611466
-# channel BISTRO:       138323612091285504
+# serveur BISTRO :      138323612091285504
+#   channel IMAJMEME :    190815749328207872
+#   channel COMMANDES:    398284500670611466
+# serveur PEEPS :       223225472702480385
+#   channel COMMANDES:    277141231484796929
 ####################################################################################################
 #load  cog :
 #@client.commmand()
