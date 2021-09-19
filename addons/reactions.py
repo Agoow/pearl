@@ -36,8 +36,7 @@ class reactions(commands.Cog):
 
         if msg == "you":
             await message.delete()
-            await message.channel.send('https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490'
-                                       '/image0.gif')
+            await message.channel.send('https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
 
 def setup(client):
     client.add_cog(reactions(client))

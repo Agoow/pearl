@@ -1,3 +1,4 @@
 discord
 python-dotenv
 psycopg2
+requests

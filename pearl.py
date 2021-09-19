@@ -1,6 +1,9 @@
 import os
 import discord
 from discord.ext import commands
+import random
+import json
+import requests
 #from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions, MissingPermissions
 # import datetime
@@ -13,18 +16,41 @@ load_dotenv()
 
 client = commands.Bot(command_prefix='*')  # , description="Bot polyvalent(vraiment pas)")
 
+# Commande Chien Random
+@client.command()
+async def dog(ctx):
+    response = requests.get("https://dog.ceo/api/breeds/image/random")
+    if(response.status_code == 200):
+        response = response.json()
+        if(response['message']):
+            await ctx.send(response['message'])
+    else :
+        await ctx.send("Soit autonome, va chercher toi-même !")
+
+# Commande Is Gay
+@client.command()
+async def gay(ctx, member: discord.Member):
+    if(random.random() < 0.3):
+        await ctx.send(f"{member.name} est clairement gay")
+    else:
+        await ctx.send(f"{member.name} n'est clairement pas gay")
+
+
+# Commande Kick
 @client.command()
 @has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member):  # , *, reason=None
     await member.kick()  # reason=reason
     await ctx.send(f"{member} n'était pas assez bourré, il a donc été expulsé")
 
+# Commande Ban
 @client.command()
 @has_permissions(ban_members=True)
 async def ban(ctx, member: discord.Member):  # , *, reason=None
     await member.ban()  # reason=reason
     await ctx.send(f"{member} devenait vraiment trop gênant , il a donc été BANNI")
 
+# Ajout des addons
 for filename in os.listdir('./addons'):
     if filename.endswith(".py"):
         client.load_extension(f'addons.{filename[:-3]}')
