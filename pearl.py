@@ -35,6 +35,16 @@ async def gay(ctx, member: discord.Member):
     else:
         await ctx.send(f"{member.name} n'est clairement pas gay")
 
+# Commande Faim
+@client.command()
+async def faim(ctx):
+    response = requests.get("https://foodish-api.herokuapp.com/api/")
+    if(response.status_code == 200):
+        response = response.json()
+        if(response['image']):
+            await ctx.send(response['image'])
+    else :
+        await ctx.send("Soit autonome, va chercher toi-même !")
 
 # Commande Kick
 @client.command()
