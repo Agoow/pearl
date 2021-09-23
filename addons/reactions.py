@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 
 class reactions(commands.Cog):
@@ -23,6 +24,9 @@ class reactions(commands.Cog):
                 await message.channel.send("https://media3.giphy.com/media/ihZE9sgAahmFIdc7v8/giphy.gif?cid=790b761153213dec39b72ed0fe35ee554c0298086dcab629")
             elif ('debout' in msg) or ('là' in msg) or ('eh' in msg):
                 await message.channel.send("https://media0.giphy.com/media/1hMaFTOrK2MhgH6uhY/giphy.gif?cid=ecf05e47bmkm1fxl86drx7i5w4rapmouk5s4lsnm6noj08mz")
+            elif ('pote' in msg) or ('mec' in msg) or ('gars' in msg):
+                bot_message = "J'suis " + random.choice(['pas ', '']) +"ton " + random.choice(['mec', 'gars', 'pote']) + ", mon " + random.choice(['mec', 'gars', 'pote']) + " !"
+                await message.channel.send(bot_message) 
             else:
                 bot_message = 'Je vais te boter le cul si tu me mentionnes encore, ' + message.author.name + ' !'
                 await message.channel.send(bot_message) 
