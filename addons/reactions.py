@@ -45,7 +45,7 @@ class reactions(commands.Cog):
 
         if msg == "artisan":
             await message.delete()
-            await message.channel.send("```Agow : Ingiénierie, dépecage, minage, fonderie```")  # ,delete_after=5
+            await message.channel.send("```Adelbert : Cuisine \n Agow : Ingiénierie, dépecage, minage, fonderie \n Foupoudav71 : Tissage, Tannerie, Arts obscurs ```")  # ,delete_after=5
 
 
 def setup(client):
