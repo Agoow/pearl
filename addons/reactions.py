@@ -27,11 +27,11 @@ class reactions(commands.Cog):
                 await message.channel.send("https://media0.giphy.com/media/1hMaFTOrK2MhgH6uhY/giphy.gif?cid=ecf05e47bmkm1fxl86drx7i5w4rapmouk5s4lsnm6noj08mz")
             elif ('pote' in msg) or ('mec' in msg) or ('gars' in msg):
                 bot_message = "J'suis " + random.choice(['pas ', '']) +"ton " + random.choice(['mec', 'gars', 'pote']) + ", mon " + random.choice(['mec', 'gars', 'pote']) + " !"
-                await message.channel.send(bot_message) 
+                await message.channel.send(bot_message)
             else:
                 bot_message = 'Je vais te boter le cul si tu me mentionnes encore, ' + message.author.name + ' !'
-                await message.channel.send(bot_message) 
-        
+                await message.channel.send(bot_message)
+
         if msg == "cringe":
             await message.delete()
             await message.channel.send("https://tenor.com/view/dies-of-cringe-cringe-gif-20747133")  # ,delete_after=5
@@ -45,7 +45,7 @@ class reactions(commands.Cog):
 
         if msg == "artisan":
             await message.delete()
-            await message.channel.send("```Adelbert : Cuisine \n Agow : Ingiénierie, dépecage, minage, fonderie \n Foupoudav71 : Tissage, Tannerie, Arts obscurs ```")  # ,delete_after=5
+            await message.channel.send("```Adelbert : Cuisine\nAgow : Ingiénierie, dépecage, minage, fonderie\nFoupoudav71 : Tissage, Tannerie, Arts obscurs\Harodz : Ingiénerie, arts obscurs\nHelgyrh : Armures, ingiénerie, cuisine\nLoopsLudo :Pêche, cuisine, arts obscurs\nLuckey : Armures, ingiénerie, fonderie, menuiserie, tannerie, tissage, récolte, minnage, dépecage\n ```")  # ,delete_after=5
 
 
 def setup(client):
