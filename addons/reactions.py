@@ -45,7 +45,7 @@ class reactions(commands.Cog):
 
         if msg == "artisan":
             await message.delete()
-            await message.channel.send("```Adelbert : Cuisine\nAgow : Ingiénierie : Tissage, Tannerie, Arts obscurs\nHarodz : Ingiénerie, arts obscurs\nHelgyrh : Armures, ingiénerie, cuisine\nLoopsLudo :Pêche, cuisine, arts obscurs\nLuckey : Armures, ingiénerie, fonderie, menuiserie, tannerie, tissage, récolte, minnage, dépecage\nNeochan : Armures; ingiénerie, arts obscurs, fonderie, menuiserie, tannerie, abattage, minage, récolte, dépecage, pêche\n ```")  # ,delete_after=5
+            await message.channel.send("```Adelbert : Cuisine\nAgow : Ingiénierie : Tissage, Tannerie, Arts obscurs\nHarodz : Ingiénerie, arts obscurs\n--------------------------------------------------------------------------\nHelgyrh : Armures, ingiénerie, cuisine\n--------------------------------------------------------------------------\nLoopsLudo :Pêche, cuisine, arts obscurs\n--------------------------------------------------------------------------\nLuckey : Armures, ingiénerie, fonderie, menuiserie, tannerie, tissage, récolte, minnage, dépecage\nNeochan : Armures; ingiénerie, arts obscurs, fonderie, menuiserie, tannerie, abattage, minage, récolte, dépecage, pêche\n```")  # ,delete_after=5
 
 
 def setup(client):
