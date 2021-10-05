@@ -2,6 +2,7 @@ import discord
 import random
 from discord.ext import commands
 
+
 class reactions(commands.Cog):
 
     def __init__(self, client):
@@ -41,6 +42,11 @@ class reactions(commands.Cog):
         if msg == "you":
             await message.delete()
             await message.channel.send('https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
+
+        if msg == "artisan":
+            await message.delete()
+            await message.channel.send("```Agow : Ingiénierie, dépecage, minage, fonderie```")  # ,delete_after=5
+
 
 def setup(client):
     client.add_cog(reactions(client))
