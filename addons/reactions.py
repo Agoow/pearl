@@ -44,8 +44,7 @@ class reactions(commands.Cog):
             await message.channel.send(
                 'https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
 
-#Tarkov##############################################################Tarkov#####################################################################################Tarkov#####
-
+#Tarkov##############################################################Tarkov#####################################################################################Tarkov####
 
         if msg == "woods":
             await message.channel.send(
@@ -60,11 +59,9 @@ class reactions(commands.Cog):
         if msg == "twiki":
             await message.channel.send('https://escapefromtarkov.gamepedia.com/')
 
-          if msg == "tierlist":
+        if msg == "tierlist":
             await message.channel.send('https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml')
 ###########################################################################################################################################################################
-
-
 
 
 def setup(client):
