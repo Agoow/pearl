@@ -32,7 +32,7 @@ class reactions(commands.Cog):
                 bot_message = 'Je vais te boter le cul si tu me mentionnes encore, ' + message.author.name + ' !'
                 await message.channel.send(bot_message)
 
-        if msg == "cringe":
+        if msg == "*cringe":
             await message.delete()
             await message.channel.send("https://tenor.com/view/dies-of-cringe-cringe-gif-20747133")  # ,delete_after=5
 
@@ -41,11 +41,30 @@ class reactions(commands.Cog):
 
         if msg == "you":
             await message.delete()
-            await message.channel.send('https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
+            await message.channel.send(
+                'https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
 
-        if msg == "artisan":
-            await message.delete()
-            await message.channel.send("```--------------------------------------------------------------------------\nAdelbert : Cuisine\n--------------------------------------------------------------------------\nAgow : Ingiénierie : Tissage, Tannerie, Arts obscurs\n--------------------------------------------------------------------------\nHarodz : Ingiénerie, arts obscurs\n--------------------------------------------------------------------------\nHelgyrh : Armures, ingiénerie, cuisine\n--------------------------------------------------------------------------\nLoopsLudo :Pêche, cuisine, arts obscurs\n--------------------------------------------------------------------------\nLuckey : Armures, ingiénerie, fonderie, menuiserie, tannerie, tissage, récolte, minnage, dépecage\n--------------------------------------------------------------------------\nNeochan : Armures; ingiénerie, arts obscurs, fonderie, menuiserie, tannerie, abattage, minage, récolte, dépecage, pêche\n--------------------------------------------------------------------------```")  # ,delete_after=5
+#Tarkov##############################################################Tarkov#####################################################################################Tarkov#####
+
+
+        if msg == "woods":
+            await message.channel.send(
+                'https://www.gamemaps.co.uk/game/tarkov/maps/glory4life_updated_feb_2021')
+
+        if msg == "shoreline":
+            await message.channel.send('https://www.gamemaps.co.uk/game/tarkov/maps/shoreline_3d_maksen')
+
+        if msg == "customs":
+            await message.channel.send('https://www.gamemaps.co.uk/game/tarkov/maps/customs_clean_monkimonkimonk')
+
+        if msg == "twiki":
+            await message.channel.send('https://escapefromtarkov.gamepedia.com/')
+
+          if msg == "tierlist":
+            await message.channel.send('https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml')
+###########################################################################################################################################################################
+
+
 
 
 def setup(client):
