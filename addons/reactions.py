@@ -20,6 +20,8 @@ class reactions(commands.Cog):
 
         msg = message.content.lower()
 
+#########################################################REACTIONS PAR GIF###################################################################################################################
+
         if self.client.user.mentioned_in(message):
             if 'je code' in msg:
                 await message.channel.send("https://media3.giphy.com/media/ihZE9sgAahmFIdc7v8/giphy.gif?cid=790b761153213dec39b72ed0fe35ee554c0298086dcab629")
@@ -44,11 +46,17 @@ class reactions(commands.Cog):
             await message.channel.send(
                 'https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
 
+################################################################MODULE FX + SAYD #######################################################################################################
+
         if msg.startswith('https://twitter.com/'):
             await message.channel.send(msg.replace('twitter', 'fxtwitter', 1))
             await message.delete()
 
-#Tarkov##############################################################Tarkov#####################################################################################Tarkov####
+        if msg.startswith('*sayd'):
+            await message.delete()
+            await message.channel.send(msg.replace('*sayd', '', 1))
+            
+###############################################################tarkov###################################################################################################################
 
         if msg == "woods":
             await message.channel.send(
@@ -65,6 +73,7 @@ class reactions(commands.Cog):
 
         if msg == "tierlist":
             await message.channel.send('https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml')
+
 ###########################################################################################################################################################################
 
 
