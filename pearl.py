@@ -6,7 +6,7 @@ import json
 import requests
 #from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions, MissingPermissions
-# import datetime
+import datetime
 # import asyncio
 # import re
 # import urllib

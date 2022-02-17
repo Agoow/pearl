@@ -44,6 +44,10 @@ class reactions(commands.Cog):
             await message.channel.send(
                 'https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
 
+        if msg.startswith('https://twitter.com/'):
+            await message.channel.send(msg.replace('twitter', 'fxtwitter', 1))
+            await message.delete()
+
 #Tarkov##############################################################Tarkov#####################################################################################Tarkov####
 
         if msg == "woods":
