@@ -4,6 +4,9 @@ from discord.ext import commands
 import random
 import json
 import requests
+#import urlparse, os
+from os.path import splitext
+from urllib.parse import urlparse
 #from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions, MissingPermissions
 import datetime

@@ -1,6 +1,7 @@
 import discord
 import random
 from discord.ext import commands
+import twitter
 
 
 class reactions(commands.Cog):
@@ -47,15 +48,15 @@ class reactions(commands.Cog):
                 'https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
 
 ################################################################MODULE FX + SAYD #######################################################################################################
-
-        if msg.startswith('https://twitter.com/'):
-            await message.channel.send(msg.replace('twitter', 'fxtwitter', 1))
-            await message.delete()
-
-        if msg.startswith('*sayd'):
-            await message.delete()
-            await message.channel.send(msg.replace('*sayd', '', 1))
-            
+        #
+            #        if msg.startswith('https://twitter.com/'):
+            #                await message.channel.send(msg.replace('twitter', 'fxtwitter', 1))
+        #                        await message.delete()
+        #
+            #        if msg.startswith('*sayd'):
+            #            await message.delete()
+        #            await message.channel.send(msg.replace('*sayd', '', 1))
+        #
 ###############################################################tarkov###################################################################################################################
 
         if msg == "woods":
@@ -74,8 +75,7 @@ class reactions(commands.Cog):
         if msg == "tierlist":
             await message.channel.send('https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml')
 
-###########################################################################################################################################################################
-
+###############################################################tarkov###################################################################################################################
 
 def setup(client):
     client.add_cog(reactions(client))
