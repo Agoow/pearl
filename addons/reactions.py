@@ -1,7 +1,6 @@
 import discord
 import random
 from discord.ext import commands
-import twitter
 
 
 class reactions(commands.Cog):
