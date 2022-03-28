@@ -59,20 +59,19 @@ class reactions(commands.Cog):
 ###############################################################tarkov###################################################################################################################
 
         if msg == "woods":
-            await message.channel.send(
-                'https://www.gamemaps.co.uk/game/tarkov/maps/glory4life_updated_feb_2021')
+            await message.channel.send("https://www.gamemaps.co.uk/game/tarkov/maps/glory4life_updated_feb_2021")
 
         if msg == "shoreline":
-            await message.channel.send('https://www.gamemaps.co.uk/game/tarkov/maps/shoreline_3d_maksen')
+            await message.channel.send("https://www.gamemaps.co.uk/game/tarkov/maps/shoreline_3d_maksen")
 
         if msg == "customs":
-            await message.channel.send('https://www.gamemaps.co.uk/game/tarkov/maps/customs_clean_monkimonkimonk')
+            await message.channel.send("https://www.gamemaps.co.uk/game/tarkov/maps/customs_clean_monkimonkimonk")
 
         if msg == "twiki":
-            await message.channel.send('https://escapefromtarkov.gamepedia.com/')
+            await message.channel.send("https://escapefromtarkov.gamepedia.com/")
 
         if msg == "tierlist":
-            await message.channel.send('https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml')
+            await message.channel.send("https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml")
 
 ###############################################################tarkov###################################################################################################################
 
