@@ -85,7 +85,7 @@ class reactions(commands.Cog):
            #print(type(message))
             #print(msg.content)
             #await asyncio.sleep(5)
-            message.delete()
+            await message.delete()
 
 
 ###############################################################tarkov###################################################################################################################
