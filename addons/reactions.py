@@ -82,7 +82,7 @@ class reactions(commands.Cog):
             await message.delete()
 
         for word in nwords:
-            #await asyncio.sleep(5)
+            await asyncio.sleep(5)
             await message.delete()
 
 
