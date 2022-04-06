@@ -82,11 +82,10 @@ class reactions(commands.Cog):
             await message.delete()
 
 
-@bot.event
-async def on_message(message):
-    for word in nwords:
-        #await asyncio.sleep(5)
-        await message.delete()
+    async def on_message(message):
+        for word in nwords:
+            #await asyncio.sleep(5)
+            await message.delete()
 
 
 ###############################################################tarkov###################################################################################################################
