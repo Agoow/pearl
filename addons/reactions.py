@@ -80,12 +80,13 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-        if 'Support website/bot developer on Patreon' in msg:
-            #await asyncio.sleep(5)
+        if 'lower price' in message.content:
+            await asyncio.sleep(5)
             await message.delete()
 
 
 ###############################################################tarkov###################################################################################################################
+
 
 def setup(client):
     client.add_cog(reactions(client))
