@@ -5,6 +5,7 @@ import asyncio
 
 specific_words = [ "lowest price", "Price Per Slot", "nigga", "nègre"]
 
+
 class reactions(commands.Cog):
 
     def __init__(self, client):
@@ -82,8 +83,7 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-
-        if "lowest price" in message.content:
+        if "lowest price" in msg:
             await asyncio.sleep(5)
             message.delete()
 
