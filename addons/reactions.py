@@ -2,7 +2,7 @@ import discord
 import random
 from discord.ext import commands
 
-nwords = [ "lower price", "Price Per Slot"]
+nwords = [ "lower price", "Price Per Slot", "nigga", "nègre"]
 
 class reactions(commands.Cog):
 
@@ -82,7 +82,7 @@ class reactions(commands.Cog):
             await message.delete()
 
         for word in nwords:
-            await asyncio.sleep(5)
+            await time.sleep(5)
             await message.delete()
 
 
