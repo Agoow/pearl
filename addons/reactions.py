@@ -81,7 +81,7 @@ class reactions(commands.Cog):
             await message.delete()
 
         if 'Support website/bot developer on Patreon' in msg:
-            await asyncio.sleep(5)
+            #await asyncio.sleep(5)
             await message.delete()
 
 ###############################################################tarkov###################################################################################################################
