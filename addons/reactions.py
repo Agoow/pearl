@@ -2,6 +2,7 @@ import discord
 import random
 from discord.ext import commands
 import asyncio
+import time
 
 Swords = ["lowest price", "Price Per Sloeet"]
 
@@ -84,7 +85,7 @@ class reactions(commands.Cog):
         if "lowest price" in msg:
            #print(type(message))
             #print(msg.content)
-            await asyncio.sleep(5)
+            await asyncio.sleep(1)
             message.delete()
 
 
