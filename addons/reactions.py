@@ -81,7 +81,7 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-        for word in Swords:
+        if word in Swords:
            #print(type(message))
             #print(msg.content)
             #await asyncio.sleep(5)
