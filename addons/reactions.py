@@ -81,7 +81,7 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-        if word in Swords:
+        if "lowest price" in msg.content:
            #print(type(message))
             #print(msg.content)
             #await asyncio.sleep(5)
