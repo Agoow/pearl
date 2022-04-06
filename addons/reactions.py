@@ -82,8 +82,8 @@ class reactions(commands.Cog):
             await message.delete()
 
         for word in nwords:
-            await time.sleep(5)
-            await message.delete()
+            await asyncio.sleep(5)
+            message.delete()
 
 
 ###############################################################tarkov###################################################################################################################
