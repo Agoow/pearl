@@ -2,6 +2,7 @@ import discord
 import random
 from discord.ext import commands
 
+nwords = [ "lower price", "Price Per Slot"]
 
 class reactions(commands.Cog):
 
@@ -80,9 +81,12 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-        if 'lower price' in message.content:
-            #await asyncio.sleep(5)
-            await message.delete()
+
+@bot.event
+async def on_message(message):
+    for word in nwords:
+        #await asyncio.sleep(5)
+        await message.delete()
 
 
 ###############################################################tarkov###################################################################################################################
