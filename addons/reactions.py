@@ -84,9 +84,6 @@ class reactions(commands.Cog):
             #await asyncio.sleep(5)
             await message.delete()
 
-        if message.author == "tarkov-market-bot":
-            await asyncio.sleep(3)
-            await message.delete()
 
 ###############################################################tarkov###################################################################################################################
 
