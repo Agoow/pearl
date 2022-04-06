@@ -3,8 +3,6 @@ import random
 from discord.ext import commands
 import asyncio
 
-specific_words = [ "lowest price", "Price Per Slot", "nigga", "nègre"]
-
 
 class reactions(commands.Cog):
 
@@ -83,7 +81,9 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-        if "lowest price" in msg:
+        if "lowest price" in message.content:
+            print(type(message))
+            print(message.content)
             await asyncio.sleep(5)
             message.delete()
 
