@@ -3,7 +3,7 @@ import random
 from discord.ext import commands
 import asyncio
 
-nwords = [ "lowest price", "Price Per Slot", "nigga", "nègre"]
+specific_words = [ "lowest price", "Price Per Slot", "nigga", "nègre"]
 
 class reactions(commands.Cog):
 
