@@ -81,9 +81,9 @@ class reactions(commands.Cog):
             await message.delete()
 
         if "lowest price" in message.content:
-            print(type(message))
-            print(message.content)
-            await asyncio.sleep(5)
+           #print(type(message))
+            #print(message.content)
+            #await asyncio.sleep(5)
             message.delete()
 
 
