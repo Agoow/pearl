@@ -82,7 +82,8 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-        for word in specific_words:
+
+        if "lowest price" in message.content:
             await asyncio.sleep(5)
             message.delete()
 
