@@ -3,6 +3,7 @@ import random
 from discord.ext import commands
 import asyncio
 
+Swords = ["lowest price", "Price Per Sloeet"]
 
 class reactions(commands.Cog):
 
@@ -80,9 +81,9 @@ class reactions(commands.Cog):
         if msg.startswith('!p'):
             await message.delete()
 
-        if 'test' in msg.content:
+        for word in Swords:
            #print(type(message))
-            #print(message.content)
+            #print(msg.content)
             #await asyncio.sleep(5)
             message.delete()
 
