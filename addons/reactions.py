@@ -46,6 +46,9 @@ class reactions(commands.Cog):
             await message.channel.send(
                 'https://cdn.discordapp.com/attachments/751532937094103132/847173219961405490/image0.gif')
 
+        if msg == "tgm4":
+            await message.channel.send("https://readmanganato.com/manga-hu985229/chapter-122")
+
 ################################################################MODULE FX + SAYD #######################################################################################################
         #
             #        if msg.startswith('https://twitter.com/'):
@@ -74,14 +77,11 @@ class reactions(commands.Cog):
         if msg == "tierlist":
             await message.channel.send("https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml")
 
-        if msg == "tgm4":
-            await message.channel.send("https://readmanganato.com/manga-hu985229/chapter-122")
-
         if msg.startswith('!p'):
             await message.delete()
 
         if 'lower price' in message.content:
-            await asyncio.sleep(5)
+            #await asyncio.sleep(5)
             await message.delete()
 
 
