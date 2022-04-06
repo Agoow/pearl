@@ -77,10 +77,10 @@ class reactions(commands.Cog):
         if msg == "tgm4":
             await message.channel.send("https://readmanganato.com/manga-hu985229/chapter-122")
 
-        if msg.startswith ('!p'):
+        if msg.startswith('!p'):
             await message.delete()
 
-        if 'lower price' in msg:
+        if 'Support website/bot developer on Patreon' in msg:
             await asyncio.sleep(5)
             await message.delete()
 
