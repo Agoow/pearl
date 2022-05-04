@@ -11,13 +11,25 @@ from urllib.parse import urlparse
 from discord.ext.commands import has_permissions, MissingPermissions
 import datetime
 # import asyncio
-# import re
 # import urllib
 # import opengraph
 from dotenv import load_dotenv
+import youtube_dl
+import unicodedata
+import re
 load_dotenv()
 
 client = commands.Bot(command_prefix='*')  # , description="Bot polyvalent(vraiment pas)")
+
+# Fonction pour convertir en nom de fichier
+def slugify(value, allow_unicode=False):
+    value = str(value)
+    if allow_unicode:
+        value = unicodedata.normalize('NFKC', value)
+    else:
+        value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
+    value = re.sub(r'[^\w\s-]', '', value.lower())
+    return re.sub(r'[-\s]+', '-', value).strip('-_')
 
 # Commande Chien Random
 @client.command()
@@ -48,6 +60,34 @@ async def faim(ctx):
             await ctx.send(response['image'])
     else :
         await ctx.send("Soit autonome, va chercher toi-même !")
+
+# Commande pour DL mp3 depuis YTB
+@client.command()
+async def ymp3(ctx, video_url: str):
+    # Est-ce que l'url est bien une URL youtube ?
+    if ("youtube" in video_url) or ("youtu.be" in video_url) :
+        await ctx.send("Ok, je m'en charge, veuillez patienter...")
+        video_info = youtube_dl.YoutubeDL().extract_info(
+            url = video_url,download=False
+        )
+        filename = f"{slugify(video_info['title'])}.mp3"
+        filepath = f"/tmp/{filename}"
+        options={
+            'format'    :    'bestaudio/best',
+            'keepvideo' :    False,
+            'outtmpl'   :    filepath,
+        }
+
+        print("Téléchargement en cours ...")
+
+        with youtube_dl.YoutubeDL(options) as ydl:
+            ydl.download([video_info['webpage_url']])
+
+        await ctx.send(f"Téléchargement terminé : {format(filename)}")
+        await ctx.send(file=discord.File(r'./tmp/%s' % filename))
+        os.remove('./tmp/%s' % filename)
+    else:
+        await ctx.send("Je ne fonctionne qu'avec les liens \"youtube.com\" / \"youtu.be\"")
 
 # Commande Kick
 @client.command()

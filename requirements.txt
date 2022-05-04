@@ -2,3 +2,7 @@ discord
 python-dotenv
 psycopg2
 requests
+pytube
+youtube_dl
+unicodedata
+re
