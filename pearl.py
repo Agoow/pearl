@@ -85,7 +85,6 @@ async def ymp3(ctx, video_url: str):
 
         await ctx.send(f"Téléchargement terminé : {format(filename)}")
         await ctx.send(file=discord.File(r'./tmp/%s' % filename))
-        os.remove('./tmp/%s' % filename)
     else:
         await ctx.send("Je ne fonctionne qu'avec les liens \"youtube.com\" / \"youtu.be\"")
 
