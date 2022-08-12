@@ -89,7 +89,7 @@ class reactions(commands.Cog):
             await message.channel.send("https://tarkovtracker.io/hideout/available/")
 
         if msg == "tierlist":
-            await message.delete()w
+            await message.delete()
             await message.channel.send("https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml")
 
 ###############################################################tarkov###################################################################################################################
