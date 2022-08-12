@@ -65,24 +65,31 @@ class reactions(commands.Cog):
 ###############################################################tarkov###################################################################################################################
 
         if msg == "woods":
+            await message.delete()
             await message.channel.send("https://cdn.discordapp.com/attachments/908562100002119681/1007328907055349820/woods.PNG")
 
         if msg == "shoreline":
+            await message.delete()
             await message.channel.send("https://cdn.discordapp.com/attachments/908562100002119681/1007331907589128213/unknown.png")
 
         if msg == "customs":
+            await message.delete()
             await message.channel.send("https://cdn.discordapp.com/attachments/908562100002119681/1007329157920870410/customs.PNG")
 
         if msg == "reserve":
+            await message.delete()
             await message.channel.send("https://cdn.discordapp.com/attachments/908562100002119681/1007328533204455474/reserve.PNG")
 
         if msg == "twiki":
+            await message.delete()
             await message.channel.send("https://escapefromtarkov.fandom.com/wiki/Escape_from_Tarkov_Wiki")
 
         if msg == "thideout":
+            await message.delete()
             await message.channel.send("https://tarkovtracker.io/hideout/available/")
 
         if msg == "tierlist":
+            await message.delete()w
             await message.channel.send("https://docs.google.com/spreadsheets/d/e/2PACX-1vR3Exvsyc4wwDlck-Vaj5MznG8NgERJ-u-q4ZoVEaO6yxLF-pGZ7jouYkEMoR0HFqq2pzImNWnAwxKE/pubhtml")
 
 ###############################################################tarkov###################################################################################################################
