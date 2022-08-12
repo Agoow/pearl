@@ -65,7 +65,7 @@ class reactions(commands.Cog):
 ###############################################################tarkov###################################################################################################################
 
         if msg == "woods":
-            await message.channel.send("https://www.gamemaps.co.uk/game/tarkov/maps/glory4life_updated_feb_2021")
+            await message.channel.send("https://media.discordapp.net/attachments/908562100002119681/1007328907055349820/woods.PNG?width=937&height=917")
 
         if msg == "shoreline":
             await message.channel.send("https://www.gamemaps.co.uk/game/tarkov/maps/shoreline_3d_maksen")
@@ -83,10 +83,8 @@ class reactions(commands.Cog):
             await message.delete()
 
         if "lowest price" in msg:
-           #print(type(message))
-            #print(msg.content)
             await asyncio.sleep(1)
-            message.delete()
+            await message.delete()
 
 
 ###############################################################tarkov###################################################################################################################
