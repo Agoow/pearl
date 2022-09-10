@@ -44,7 +44,7 @@ async def schedule_daily_message():
 		channel = bot.get_channel(880236859517706271)
 
 		await channel.send("test")
-		await channel.send("https://www.cidehom.com/apod.php"))
+		await channel.send("https://www.cidehom.com/apod.php")
 
 # Commande Chien Random
 @client.command()
