@@ -31,6 +31,21 @@ def slugify(value, allow_unicode=False):
     value = re.sub(r'[^\w\s-]', '', value.lower())
     return re.sub(r'[-\s]+', '-', value).strip('-_')
 
+#image journalière random de l'espace
+@client.command
+async def schedule_daily_message():
+	while True:
+		now = datetime.datetime.now()
+		#then = now+datetime.timedelta(days=1)
+		then = now.replace(hour=00, minute=20)
+		wait_time = (then-now).total_seconds()
+		await asyncio.sleep(wait_time)
+
+		channel = bot.get_channel(880236859517706271)
+
+		await channel.send("test")
+		await channel.send("https://www.cidehom.com/apod.php"))
+
 # Commande Chien Random
 @client.command()
 async def dog(ctx):
