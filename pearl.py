@@ -1,39 +1,90 @@
+import asyncio
+import datetime
 import os
+import random
 import discord
 from discord.ext import commands
-import random
-import json
-import requests
-#import urlparse, os
-from os.path import splitext
-from urllib.parse import urlparse
-#from discord.ext.commands import Bot
 from discord.ext.commands import has_permissions, MissingPermissions
-import datetime
-# import asyncio
-# import urllib
-# import opengraph
-from dotenv import load_dotenv
-import youtube_dl
-import unicodedata
-import re
-load_dotenv()
+import requests
 
-client = commands.Bot(command_prefix='*')  # , description="Bot polyvalent(vraiment pas)")
+# Récupération du token Discord
+def get_discord_token():
+    with open('discord_token.txt', 'r') as file:
+        return file.read().strip()
 
-# Fonction pour convertir en nom de fichier
-def slugify(value, allow_unicode=False):
-    value = str(value)
-    if allow_unicode:
-        value = unicodedata.normalize('NFKC', value)
-    else:
-        value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
-    value = re.sub(r'[^\w\s-]', '', value.lower())
-    return re.sub(r'[-\s]+', '-', value).strip('-_')
+token = get_discord_token()
 
-#image journalière random de l'espace
-@client.command
-async def schedule_daily_message():
+# Variables
+#TOKEN = 'ODgwMDcxODkyNDQ5NTAxMjE0.GrzUxn.UT66xajMXMHzP-MRxyjI3Ew4fAtPl2CZf2PcKw'
+DOG_API_LINK = 'https://dog.ceo/api/breeds/image/random'
+
+# Variables Unsplash
+ID_UNSPLASH = 'S4Lem4GYBh0ULXVFbdAXWAOMDguJCDH3mBk2l3OQkrY'
+URL_UNSPLASH = 'https://api.unsplash.com/search/photos'
+
+# Les intents (j'ai bof compris pk ça existe cette merde)
+intents = discord.Intents.default()
+intents.message_content = True
+
+# Le prefix
+bot = commands.Bot(command_prefix='*', intents=intents)
+
+#----------------------------------------------------- Events ------------------------------------------------------
+@bot.event
+async def on_ready():
+    print(f"oui c'est bon")
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if "salut" in message.content.lower():
+        await message.channel.send('Bonjour :|')
+        
+    if message.content.lower() == 'feur':
+        await message.channel.send("T'es vraiment qu'un sale chien")
+
+    if ":ptdr:504329599468044319" in message.content.lower():
+        await message.channel.send("<:PTDR:504329599468044319>")
+
+    # Laisser ça pour qu'il puisse continuer à traiter les commandes
+    await bot.process_commands(message)
+
+#--------------------------------------------------- Fin events ----------------------------------------------------
+
+
+
+#--------------------------------------------------- Commandes -----------------------------------------------------
+# API qui renvoie une photo aléatoire de chien
+@bot.command()
+async def dog(ctx):
+    response = requests.get(DOG_API_LINK)
+    if response.status_code == 200:
+        response = response.json()
+        if(response['message']):
+            await ctx.send(response['message'])
+    else :
+        await ctx.send("No doge today")
+
+# Commande pour kick un utilisateur
+@bot.command()
+@has_permissions(kick_members=True)
+async def kick(ctx, member: discord.Member):  # , *, reason=None
+    await member.kick()  # reason=reason
+    await ctx.send(f"{member} n'était pas assez bourré, il a donc été expulsé")
+
+# Commande pour ban un utilisateur
+@bot.command()
+@has_permissions(ban_members=True)
+async def ban(ctx, member: discord.Member):  # , *, reason=None
+    await member.ban()  # reason=reason
+    await ctx.send(f"{member} devenait vraiment trop gênant , il a donc été BANNI")
+
+
+# L'image d'astronomie du jour 
+@bot.command
+async def schedule_daily_message():      
 	while True:
 		now = datetime.datetime.now()
 		#then = now+datetime.timedelta(days=1)
@@ -41,114 +92,33 @@ async def schedule_daily_message():
 		wait_time = (then-now).total_seconds()
 		await asyncio.sleep(wait_time)
 
-		channel = bot.get_channel(880236859517706271)
+		channel = discord.BotIntegration.get_channel(1018264148133552210)
 
-		await channel.send("test")
 		await channel.send("https://www.cidehom.com/apod.php")
 
-# Commande Chien Random
-@client.command()
-async def dog(ctx):
-    response = requests.get("https://dog.ceo/api/breeds/image/random")
-    if(response.status_code == 200):
-        response = response.json()
-        if(response['message']):
-            await ctx.send(response['message'])
-    else :
-        await ctx.send("Soit autonome, va chercher toi-même !")
 
-# Commande Is Gay
-@client.command()
-async def gay(ctx, member: discord.Member):
-    if(random.random() < 0.3):
-        await ctx.send(f"{member.name} est clairement gay")
-    else:
-        await ctx.send(f"{member.name} n'est clairement pas gay")
+# Sly veut une commande qui renvoie une image aléatoire de raton-laveur (Unsplash)
+@bot.command()
+async def raccoon(ctx):
+    url = URL_UNSPLASH
+    params = {
+        "query": "raccoon",
+        "per_page": 100,
+        "client_id": ID_UNSPLASH # Lien pour l'ID : https://unsplash.com/oauth/applications "Access Key"
+    }
 
-# Commande Faim
-@client.command()
-async def faim(ctx):
-    response = requests.get("https://foodish-api.herokuapp.com/api/")
-    if(response.status_code == 200):
-        response = response.json()
-        if(response['image']):
-            await ctx.send(response['image'])
-    else :
-        await ctx.send("Soit autonome, va chercher toi-même !")
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        if data['results']:
+            # Choix aléatoire d'un raccoon random
+            image_url = random.choice(data['results'])['urls']['regular']
+            await ctx.send(image_url)
+        else:
+            await ctx.send("Sadge, no raccoon for you")
 
-# Commande pour DL mp3 depuis YTB
-@client.command()
-async def ymp3(ctx, video_url: str):
-    # Est-ce que l'url est bien une URL youtube ?
-    if ("youtube" in video_url) or ("youtu.be" in video_url) :
-        await ctx.send("Ok, je m'en charge, veuillez patienter...")
-        video_info = youtube_dl.YoutubeDL().extract_info(
-            url = video_url,download=False
-        )
-        filename = f"{slugify(video_info['title'])}.mp3"
-        filepath = f"/tmp/{filename}"
-        options={
-            'format'    :    'bestaudio/best',
-            'keepvideo' :    False,
-            'outtmpl'   :    filepath,
-        }
 
-        print("Téléchargement en cours ...")
+#------------------------------------------------ Fin commandes ----------------------------------------------------
 
-        with youtube_dl.YoutubeDL(options) as ydl:
-            ydl.download([video_info['webpage_url']])
-
-        await ctx.send(f"Téléchargement terminé : {format(filename)}")
-        await ctx.send(file=discord.File(r'/tmp/%s' % filename))
-    else:
-        await ctx.send("Je ne fonctionne qu'avec les liens \"youtube.com\" / \"youtu.be\"")
-
-# Commande Kick
-@client.command()
-@has_permissions(kick_members=True)
-async def kick(ctx, member: discord.Member):  # , *, reason=None
-    await member.kick()  # reason=reason
-    await ctx.send(f"{member} n'était pas assez bourré, il a donc été expulsé")
-
-# Commande Ban
-@client.command()
-@has_permissions(ban_members=True)
-async def ban(ctx, member: discord.Member):  # , *, reason=None
-    await member.ban()  # reason=reason
-    await ctx.send(f"{member} devenait vraiment trop gênant , il a donc été BANNI")
-
-# Ajout des addons
-for filename in os.listdir('./addons'):
-    if filename.endswith(".py"):
-        client.load_extension(f'addons.{filename[:-3]}')
-
-client.run(os.getenv("pearltoken"))
-
-####################################################################################################
-# history = message.channel.history(limit=200) - 200 derniers messages sur le channel dans lequel est passé la commande
-####################################################################################################
-# command_name = message.content[len(prefix):]
-#      await dispatch_commands(command_name, message)
-#          async def dispatch_commands(command_name, message):
-#    if command_name == 'te':
-#       await message.channel.send('st')
-####################################################################################################
-# @client.event
-# async def on_message(message):
-#    if message.channel.id == 398284500670611466 and not message.author.bot:
-# urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message.content)
-# if urls:
-# print(urls[0])
-# message.channel.id == 398284500670611466 and message.content in message.channel.history():
-####################################################################################################
-# serveur BISTRO :      138323612091285504
-#   channel IMAJMEME :    190815749328207872
-#   channel COMMANDES:    398284500670611466
-# serveur PEEPS :       223225472702480385
-#   channel COMMANDES:    277141231484796929
-####################################################################################################
-#load  cog :
-#@client.commmand()
-#async def load(ctx, extension):
-#    client.load_extension(f'plugins.{extension}')
-####################################################################################################
+# Lancement du bot
+bot.run(token)

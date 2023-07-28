@@ -1,6 +1,2 @@
-discord
-python-dotenv
-psycopg2
+discord.py
 requests
-pytube
-youtube_dl
