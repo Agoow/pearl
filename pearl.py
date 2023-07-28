@@ -7,6 +7,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 import requests
 
+
 # Récupération du token Discord
 def get_discord_token():
     with open('discord_token.txt', 'r') as file:
