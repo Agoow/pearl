@@ -16,7 +16,6 @@ def get_discord_token():
 token = get_discord_token()
 
 # Variables
-#TOKEN = 'ODgwMDcxODkyNDQ5NTAxMjE0.GrzUxn.UT66xajMXMHzP-MRxyjI3Ew4fAtPl2CZf2PcKw'
 DOG_API_LINK = 'https://dog.ceo/api/breeds/image/random'
 
 # Variables Unsplash
