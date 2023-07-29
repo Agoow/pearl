@@ -8,13 +8,6 @@ from discord.ext.commands import has_permissions, MissingPermissions
 import requests
 
 
-# Récupération du token Discord
-def get_discord_token():
-    with open('discord_token.txt', 'r') as file:
-        return file.read().strip()
-
-token = get_discord_token()
-
 # Variables
 DOG_API_LINK = 'https://dog.ceo/api/breeds/image/random'
 
@@ -123,4 +116,4 @@ async def raccoon(ctx):
 #------------------------------------------------ Fin commandes ----------------------------------------------------
 
 # Lancement du bot
-bot.run(token)
+bot.run(os.getenv("DISCORD_TOKEN"))
