@@ -33,6 +33,8 @@ bot = commands.Bot(command_prefix='*', intents=intents)
 @bot.event
 async def on_ready():
     print(f"oui c'est bon")
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Bing chilling"))
+
 
 @bot.event
 async def on_message(message):
