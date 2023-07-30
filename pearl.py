@@ -7,7 +7,6 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 import requests
 
-
 # Variables
 DOG_API_LINK = 'https://dog.ceo/api/breeds/image/random'
 
@@ -111,7 +110,6 @@ async def raccoon(ctx):
             await ctx.send(image_url)
         else:
             await ctx.send("Sadge, no raccoon for you")
-
 
 #------------------------------------------------ Fin commandes ----------------------------------------------------
 
