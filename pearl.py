@@ -6,6 +6,11 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+discord_token = os.getenv("DISCORD_TOKEN")
 
 # Variables
 DOG_API_LINK = 'https://dog.ceo/api/breeds/image/random'
@@ -114,4 +119,5 @@ async def raccoon(ctx):
 #------------------------------------------------ Fin commandes ----------------------------------------------------
 
 # Lancement du bot
-bot.run(os.getenv("DISCORD_TOKEN"))
+# Test est-ce que le crontab fonctionne ??
+bot.run(discord_token)
