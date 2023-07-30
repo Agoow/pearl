@@ -119,5 +119,5 @@ async def raccoon(ctx):
 #------------------------------------------------ Fin commandes ----------------------------------------------------
 
 # Lancement du bot
-# Test est-ce que le crontab fonctionne ??
+# Test pull
 bot.run(discord_token)
