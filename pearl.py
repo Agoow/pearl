@@ -119,5 +119,5 @@ async def raccoon(ctx):
 #------------------------------------------------ Fin commandes ----------------------------------------------------
 
 # Lancement du bot
-# Test pull
+# Test
 bot.run(discord_token)
